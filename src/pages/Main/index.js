@@ -1,31 +1,21 @@
-import { Container, Row } from "react-bootstrap";
-import { NavbarFull } from "../../components/NavbarFull";
-import { CarouselFull } from "../../components/CarouselFull";
-import { CardFull } from "../../components/CardFull";
-import { FooterFull } from "../../components/FooterFull";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Main } from './pages/Main';
+import { NavbarS } from './components/Navbar';
+import { FooterS } from './components/Footer';
 
-export const Main = () => {
-  return (
-    <>
-      <NavbarFull />
-      <CarouselFull />
-      <Container fluid>
-        <Row className="justify-content-md-center">
-          <CardFull />
-          <CardFull />
-          <CardFull />
-          <CardFull />
-          <CardFull />
-          <CardFull />
-          <CardFull />
-          <CardFull />
-          <CardFull />
-          <CardFull />
-          <CardFull />
-          <CardFull />
-        </Row>
-      </Container>
-      <FooterFull />
-    </>
-  );
-};
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <NavbarS />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
+    <FooterS />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
